@@ -14,6 +14,6 @@ eureka:
     fetch-registry: true
 
 sidecar:
-  port: 3000
-  health-uri: http://localhost:3000/health
+  port: 3005
+  health-uri: http://localhost:3005/health
     
