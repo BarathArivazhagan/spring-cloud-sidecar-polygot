@@ -20,5 +20,17 @@ services:
       - eureka-server
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
+  zuul-proxy:
+    build: ./zuul-proxy
+    ports:
+      - "9005:9005"
+    depends_on: 
+      - msstore-microservice
+      - csstore-microservice
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
+      ZUUL_ROUTES_MSSTORE_URL: http://msstore-microservice:9002
+      ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
+
 
 

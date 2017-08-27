@@ -6,6 +6,8 @@ spring:
 
 server:
   port: 9002
+  #context-path: /msstore
+
   
 eureka:
   client:
