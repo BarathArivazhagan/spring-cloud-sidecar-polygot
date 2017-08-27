@@ -10,7 +10,7 @@ This project contains samples demonstrating the usage of side car polygot
     <th style="text-align:left">Description</th>
   </tr>
   <tr>
-    <td>eureka-server</td>
+    <td>[eureka-server](eureka-server)</td>
     <td>9000</td>
     <td>Eureka server - service registration server</td>
   </tr>
@@ -24,14 +24,18 @@ This project contains samples demonstrating the usage of side car polygot
     <td>9002</td>
     <td>Service discovery microservice registered with eureka server</td>
   </tr>
+  <tr>
+    <td>zuul-proxy</td>
+    <td>9005</td>
+    <td>Zuul proxy for routering and filtering</td>
+  </tr>
 </table>
 
 
 ## How to build and run ?
 
  * Download/Clone the repository : 
-   Run maven build: 
-
+   
    ```
    ./mvnw clean install
 
@@ -39,7 +43,31 @@ This project contains samples demonstrating the usage of side car polygot
 
  * To run the application :
 
-  ```
-  docker-compose up
-  
-  ```
+	  ```
+	  docker-compose up
+
+	  ```
+
+## How to test the application : 
+
+Use zuul proxy to route to respective microservices. 
+
+zuul route definition : 
+
+```
+zuul:
+  routes:
+    msstore :       
+        path: /msstore/**
+        url: http://localhost:9002
+    csstore: 
+        path: /csstore/**
+        url: http://localhost:9001
+
+```
+
+Navigate to http://localhost:9005/msstore for msstore 
+navigate to http://localhost:9005/csstore for csstore 
+
+
+
