@@ -16,4 +16,14 @@ eureka:
 sidecar:
   port: 3000
   health-uri: http://localhost:3000/health
+  
+management:
+  security:
+    enabled: false
     
+zuul:
+  routes:
+    wstore: 
+      path: /wstore/**
+      url: http://localhost:3000
+       

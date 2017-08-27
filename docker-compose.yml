@@ -47,6 +47,7 @@ services:
    environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
       SIDECAR_HEALTH-URI: http://wsstore-node:3000/health
+      ZUUL_ROUTES_WSTORE_URL: http://wsstore-node:3000
 
 
 
