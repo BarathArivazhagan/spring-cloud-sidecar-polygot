@@ -10,7 +10,7 @@ This project contains samples demonstrating the usage of side car polygot
     <th style="text-align:left">Description</th>
   </tr>
   <tr>
-    <td>[eureka-server](https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/eureka-server)</td>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/eureka-server"> eureka-server</a></td>
     <td>9000</td>
     <td>Eureka server - service registration server</td>
   </tr>
