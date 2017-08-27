@@ -1,0 +1,42 @@
+{
+  "name": "wsstore-node-express",
+  "version": "1.0.0",
+  "description": "wstore node express application using entity ORM framework",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch & nodemon dist/App.js --inspect",
+    "debug": "tsc --watch & nodemon dist/App.js --inspect",
+    "test": "tsc && mocha dist/**/*.spec.js",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc"
+  },
+  "keywords": [
+    "nodejs",
+    "ORM"
+  ],
+  "author": "barath.arivazhagan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "morgan": "^1.8.2",
+    "mysql": "^2.14.1",
+    "nodemon": "^1.11.0",
+    "typeorm": "0.1.0-alpha.35",
+    "typescript": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.20",
+    "eslint": "4.0.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.3.0",
+    "eslint-plugin-promise": "3.5.0",
+    "mocha": "3.4.2",
+    "supertest": "3.0.0",
+    "tsc": "1.20150623.0",
+    "typescript": "2.3.3",
+    "typescript-eslint-parser": "3.0.0"
+  }
+}
