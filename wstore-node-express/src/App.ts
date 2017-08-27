@@ -12,7 +12,7 @@ class App {
     this.express = express();
     this.router=express.Router();
     this.express.use(bodyParser.json());
-    const port = process.env.PORT || 3005
+    const port = process.env.PORT || 3000
 
       this.express.listen(port, (err) => {
                 if (err) {
