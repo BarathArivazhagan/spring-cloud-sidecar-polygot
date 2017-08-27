@@ -39,9 +39,9 @@ services:
       ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
       ZUUL_ROUTES_WSTORE_URL: http://sidecar:9004
   sidecar:
-   build: ./wstore-node-express
+   build: ./sidecar
    ports:
-      - "3000:3000"
+      - "9004:9004"
    links: 
       - eureka-server  
    environment:
