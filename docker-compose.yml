@@ -37,7 +37,7 @@ services:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
       ZUUL_ROUTES_MSSTORE_URL: http://msstore-microservice:9002
       ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
-      ZUUL_ROUTES_WSTORE_URL: http://sidecar:9004
+      ZUUL_ROUTES_WSTORE_URL:  http://wsstore-node:3000
   sidecar:
    build: ./sidecar
    ports:

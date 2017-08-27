@@ -15,7 +15,7 @@ zuul:
         url: http://localhost:9001
     wstore: 
         path: /wstore/**
-        url: http://localhost:9004
+        url: http://localhost:3000
         
 eureka:
   client:

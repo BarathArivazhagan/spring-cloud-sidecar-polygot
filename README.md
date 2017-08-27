@@ -76,8 +76,34 @@ zuul:
 
 ```
 <div>
-	<span>Navigate to http://localhost:9005/msstore  for msstore </span><br>
-    <span>Navigate to http://localhost:9005/csstore for csstore </span>
+	<span>Navigate to <a>ttp://localhost:9005/msstore</a>  for msstore </span><br>
+    <span>Navigate to <a>http://localhost:9005/csstore</a> for csstore </span>
+</div>
+
+## Side car route definition 
+
+```
+zuul:
+  routes:
+    wstore: 
+      path: /wstore/**
+      url: http://localhost:3000
+
+sidecar:
+  port: 3000
+  health-uri: http://localhost:3000/health
+
+```
+
+### Notes : 
+
+<bold>sidecar.port</bold> : Port must be same as the non jvm port <br>
+<bold>sidecar.health-uri</bold>: non jvm application should expose this url with json message {"STATUS" : "UP"} to indicate sidecar the app is UP.
+
+## How to test sidecar ? 
+
+<div>
+   Navigate to <a>http://localhost:9004/wstore/home</a> --> sidecar routes to non jvm(nodejs app)  
 </div>
 
 ## How to rebuild the project after the changes? 
