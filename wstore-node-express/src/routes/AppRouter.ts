@@ -13,7 +13,7 @@ class AppRouter{
     
         
         console.log("router is getting configured");
-        router.get('/', (req, res) => {
+        router.get('/home', (req, res) => {
           res.send('WELCOME TO WALMART NODE EXPRESS APPLICATION !');
         
         });  
