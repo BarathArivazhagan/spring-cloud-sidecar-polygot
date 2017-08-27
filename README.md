@@ -15,17 +15,17 @@ This project contains samples demonstrating the usage of side car polygot
     <td>Eureka server - service registration server</td>
   </tr>
   <tr>
-    <td>csstore-microservice</td>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/csstore-microservice">csstore-microservice</a></td>
     <td>9001</td>
     <td>Service discovery microservice registered with eureka server</td>
   </tr>
   <tr>
-    <td>msstore-microservice</td>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/msstore-microservice">msstore-microservice</a></td>
     <td>9002</td>
     <td>Service discovery microservice registered with eureka server</td>
   </tr>
   <tr>
-    <td>zuul-proxy</td>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/zuul-proxy">zuul-proxy</a></td>
     <td>9005</td>
     <td>Zuul proxy for routering and filtering</td>
   </tr>
@@ -66,7 +66,7 @@ zuul:
 
 ```
 <div>
-	<span>Navigate to http://localhost:9005/msstore for msstore </span>
+	<span>Navigate to http://localhost:9005/msstore for msstore </span><br>
     <span>Navigate to http://localhost:9005/csstore for csstore </span>
 </div>
 
