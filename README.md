@@ -1,5 +1,6 @@
 # spring-cloud-sidecar-sample
-This project contains samples demonstrating the usage of side car polygot
+This project contains samples demonstrating the usage of side car polygot.
+Spring cloud side car helps to register non jvm applications in eureka service registration/discovery.
 
 ![side car](images/sidecar.png)
 
