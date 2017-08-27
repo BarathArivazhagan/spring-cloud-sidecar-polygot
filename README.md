@@ -27,7 +27,7 @@ This project contains samples demonstrating the usage of side car polygot
   <tr>
     <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/zuul-proxy">zuul-proxy</a></td>
     <td>9005</td>
-    <td>Zuul proxy for routering and filtering</td>
+    <td>Zuul proxy for routing and filtering</td>
   </tr>
 </table>
 
