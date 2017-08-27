@@ -10,7 +10,7 @@ This project contains samples demonstrating the usage of side car polygot
     <th style="text-align:left">Description</th>
   </tr>
   <tr>
-    <td>[eureka-server](eureka-server)</td>
+    <td>[eureka-server](https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/eureka-server)</td>
     <td>9000</td>
     <td>Eureka server - service registration server</td>
   </tr>
@@ -65,9 +65,10 @@ zuul:
         url: http://localhost:9001
 
 ```
-
-Navigate to http://localhost:9005/msstore for msstore 
-navigate to http://localhost:9005/csstore for csstore 
+<div>
+	<span>Navigate to http://localhost:9005/msstore for msstore </span>
+    <span>Navigate to http://localhost:9005/csstore for csstore </span>
+</div>
 
 
 
