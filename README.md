@@ -76,8 +76,8 @@ zuul:
 
 ```
 <div>
-	<span>Navigate to <a>ttp://localhost:9005/msstore</a>  for msstore </span><br>
-    <span>Navigate to <a>http://localhost:9005/csstore</a> for csstore </span>
+	<span>Navigate to <a href="http://localhost:9005/msstore">http://localhost:9005/msstore</a>  for msstore </span><br>
+    <span>Navigate to <a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a> for csstore </span>
 </div>
 
 ## Side car route definition 
@@ -97,8 +97,9 @@ sidecar:
 
 ### Notes : 
 
-<bold>sidecar.port</bold> : Port must be same as the non jvm port <br>
-<bold>sidecar.health-uri</bold>: non jvm application should expose this url with json message {"STATUS" : "UP"} to indicate sidecar the app is UP.
+
+<b>sidecar.port</b> : Port must be same as the non jvm port <br>
+<b>sidecar.health-uri</b>: non jvm application should expose this url with json message {"STATUS" : "UP"} to indicate sidecar the app is UP.
 
 ## How to test sidecar ? 
 
