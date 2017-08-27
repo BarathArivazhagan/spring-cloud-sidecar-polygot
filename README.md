@@ -109,17 +109,17 @@ sidecar:
 
 ## Why Zuul as well as side car ? 
 
-</p>yes, thats right. @EnableSideCar includes @EnableZuulProxy so side car can act as zuul proxy itself. 
+</p>yes, thats right. `@EnableSideCar` includes `@EnableZuulProxy`so side car can act as zuul proxy itself. 
 In order to provide separate proxy for side car(non jvm) based applications, this repo contains two proxies</p>
 
-<i> zuul-proxy</i> : provides proxy to jvm based applications. <br>
-<i> sidecar </i> : provides proxy to non jvm based applications.
+<i>zuul-proxy</i> : provides proxy to jvm based applications. <br>
+<i>sidecar </i> : provides proxy to non jvm based applications.
 
-## Future Actions : 
+#### Future Actions : 
 
 * Config server : externalize the properties. 
 * Introduce hysterix stream and feign clients to interact with other microservices.
- 
+
 
 
 ## How to rebuild the project after the changes? 
