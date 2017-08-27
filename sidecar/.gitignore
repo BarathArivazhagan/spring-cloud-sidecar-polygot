@@ -22,10 +22,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-
-#################
-## Directories
-#################
-
-node_modules/

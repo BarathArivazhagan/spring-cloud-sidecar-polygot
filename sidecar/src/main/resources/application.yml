@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sidecar
+
+server:
+  port: 9004
+
+       
+eureka:
+  client:
+    serviceUrl:      
+       defaultZone: http://localhost:9000/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+sidecar:
+  port: 3000
+  health-uri: http://localhost:3000/health
+    

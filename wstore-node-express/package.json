@@ -5,11 +5,12 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch & nodemon dist/App.js --inspect",
-    "debug": "tsc --watch & nodemon dist/App.js --inspect",
+    "dev": "tsc --watch & nodemon dist/App.js",
+    "debug": "tsc --watch & nodemon dist/App.js",
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "start": "tsc --watch & nodemon dist/App.js"
   },
   "keywords": [
     "nodejs",

@@ -14,9 +14,15 @@ class AppRouter{
         
         console.log("router is getting configured");
         router.get('/', (req, res) => {
-          res.json({
-            message: 'WELCOME TO WALMART NODE EXPRESS APPLICATION !'
-          });
+          res.send('WELCOME TO WALMART NODE EXPRESS APPLICATION !');
+        
+        });  
+    
+         router.get('/health', (req, res) => {
+           
+          console.log("Health json is called ");
+          res.json({"status":"UP"});
+        
         });  
         express.use('/',router);
   }
