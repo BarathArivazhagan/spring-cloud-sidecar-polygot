@@ -1,4 +1,4 @@
-package com.barath.cloud.samples.sidecar;
+package com.barath.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

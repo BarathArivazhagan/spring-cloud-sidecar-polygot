@@ -13,6 +13,9 @@ zuul:
     csstore: 
         path: /csstore/**
         url: http://localhost:9001
+    wstore: 
+        path: /wstore/**
+        url: http://localhost:9004
         
 eureka:
   client:

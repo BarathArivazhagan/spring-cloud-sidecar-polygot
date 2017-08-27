@@ -20,10 +20,11 @@
 	</properties>
 
 	
-	 <modules>
+	<modules>
          <module>eureka-server</module>
          <module>csstore-microservice</module>
          <module>msstore-microservice</module>
+          <module>sidecar</module>
          <module>zuul-proxy</module>
        
     </modules>	
