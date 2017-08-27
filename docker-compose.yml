@@ -24,13 +24,8 @@ services:
     build: ./wstore-node-express
     ports:
       - "3000:3000"
-  side-car: 
-  	build: ./sidecar
-    ports:
-      - "9004:9004"
-    environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
-      SIDECAR_HEALTH-URI: http://side-car:3000/health
+    links: 
+      - sidecar
   zuul-proxy:
     build: ./zuul-proxy
     ports:
@@ -42,7 +37,16 @@ services:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
       ZUUL_ROUTES_MSSTORE_URL: http://msstore-microservice:9002
       ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
-      ZUUL_ROUTES_WSTORE_URL: http://side-car:9004
+      ZUUL_ROUTES_WSTORE_URL: http://sidecar:9004
+  sidecar:
+   build: ./wstore-node-express
+   ports:
+      - "3000:3000"
+   links: 
+      - eureka-server  
+   environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
+      SIDECAR_HEALTH-URI: http://wsstore-node:3000/health
 
 
 
