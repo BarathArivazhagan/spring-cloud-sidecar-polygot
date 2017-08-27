@@ -25,6 +25,16 @@ This project contains samples demonstrating the usage of side car polygot
     <td>Service discovery microservice registered with eureka server</td>
   </tr>
   <tr>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/sidecar">sidecar</a></td>
+    <td>9004</td>
+    <td>Side car proxy for routing and filtering to wstore node app</td>
+  </tr>
+   <tr>
+    <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/wstore-node-express">wstore-node-express</a></td>
+    <td>3005</td>
+    <td>Node express (non jvm ) application </td>
+  </tr>
+  <tr>
     <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/zuul-proxy">zuul-proxy</a></td>
     <td>9005</td>
     <td>Zuul proxy for routing and filtering</td>
@@ -48,7 +58,7 @@ This project contains samples demonstrating the usage of side car polygot
 
 	  ```
 
-## How to test the application : 
+## How to test the application ? 
 
 Use zuul proxy to route to respective microservices. 
 
@@ -66,9 +76,26 @@ zuul:
 
 ```
 <div>
-	<span>Navigate to http://localhost:9005/msstore for msstore </span><br>
+	<span>Navigate to http://localhost:9005/msstore  for msstore </span><br>
     <span>Navigate to http://localhost:9005/csstore for csstore </span>
 </div>
+
+## How to rebuild the project after the changes? 
+
+```
+  docker-compose build
+
+```
+
+
+
+## References 
+
+
+* http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
+* https://dzone.com/articles/spring-cloud-sidecar
+* http://www.java-allandsundry.com/2015/09/spring-cloud-sidecar.html
+* http://stytex.de/blog/2016/01/18/spring-cloud-sidecar-applications/
 
 
 
