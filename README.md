@@ -5,9 +5,9 @@ This project contains samples demonstrating the usage of side car polygot
 
 
  <tr>
-    <th>Name</th>
-    <th>Port</th> 
-    <th>Description</th>
+    <th style="text-align:left">Name</th>
+    <th style="text-align:left">Port</th> 
+    <th style="text-align:left">Description</th>
   </tr>
   <tr>
     <td>eureka-server</td>
@@ -25,3 +25,21 @@ This project contains samples demonstrating the usage of side car polygot
     <td>Service discovery microservice registered with eureka server</td>
   </tr>
 </table>
+
+
+## How to build and run ?
+
+ * Download/Clone the repository : 
+   Run maven build: 
+
+   ```
+   ./mvnw clean install
+
+   ```
+
+ * To run the application :
+
+  ```
+  docker-compose up
+  
+  ```
