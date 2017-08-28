@@ -34,7 +34,7 @@ Spring cloud side car helps to register non jvm applications in eureka service r
   </tr>
    <tr>
     <td><a href="https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample/tree/master/wstore-node-express">wstore-node-express</a></td>
-    <td>3005</td>
+    <td>3000</td>
     <td>Node express (non jvm ) application </td>
   </tr>
   <tr>
