@@ -121,7 +121,7 @@ In order to provide separate proxy for side car(non jvm) based applications, thi
 #### Future Actions : 
 
 * Config server : externalize the properties. 
-* Introduce hysterix stream and feign clients to interact with other microservices.
+* Introduce hystrix stream and feign clients to interact with other microservices.
 
 
 
