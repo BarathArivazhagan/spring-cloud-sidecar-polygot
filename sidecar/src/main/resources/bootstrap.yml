@@ -1,9 +1,18 @@
+
+server:
+  port: 9004   
 spring:
   application:
     name: sidecar
-
-server:
-  port: 9004
+  profiles:
+    active:
+      - local
+  cloud:
+    config:
+      uri:
+        - http://localhost:9500
+      username: configuser
+      password: configpassword
 
        
 eureka:
@@ -27,3 +36,4 @@ zuul:
       path: /wstore/**
       url: http://localhost:3000
        
+     

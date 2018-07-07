@@ -1,0 +1,16 @@
+
+server:
+  port: 9005
+spring:
+  application:
+    name: zuul-proxy
+  profiles:
+    active:
+      - local
+  cloud:
+    config:
+      uri:
+        - http://localhost:9500
+      username: configuser
+      password: configpassword
+     
