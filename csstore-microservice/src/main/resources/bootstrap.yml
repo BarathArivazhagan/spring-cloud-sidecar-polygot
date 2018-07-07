@@ -1,10 +1,10 @@
 
 server:
-  port: 9002
+  port: 9001
     
 spring:
   application:
-    name: msstore-microservice
+    name: csstore-microservice
   profiles:
     active:
       - local
