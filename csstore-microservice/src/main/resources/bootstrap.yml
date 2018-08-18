@@ -5,13 +5,13 @@ server:
 spring:
   application:
     name: csstore-microservice
-  profiles:
-    active:
-      - local
+#  profiles:
+#    active:
+#      - local
   cloud:
     config:
       uri:
-        - http://localhost:9500
-      username: configuser
-      password: configpassword
+        - ${vcap.services.config-client.credentials.uri:http://localhost:9500}
+      username: ${vcap.services.config-client.credentials.username:configuser}
+      password: ${vcap.services.config-client.credentials.password:configpassword}
      

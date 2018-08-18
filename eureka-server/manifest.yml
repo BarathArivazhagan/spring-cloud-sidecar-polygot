@@ -1,0 +1,11 @@
+---
+applications:
+- name: eureka-server
+  memory: 1024M
+  buildpack: java_buildpack
+  path: target/eureka-server-2.0.3.RELEASE.jar
+  services:
+  - config-client
+  env:
+    SPRING_PROFILES_ACTIVE: pcfdev
+    #SPRING_PROFILES_ACTIVE: pcf

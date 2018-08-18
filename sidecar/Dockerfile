@@ -1,4 +1,4 @@
-FROM java
+FROM openjdk:8-jdk-alpine
 MAINTAINER BARATH
 EXPOSE 9004
 ADD target/sidecar-0.0.1-SNAPSHOT.jar app.jar

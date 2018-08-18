@@ -4,36 +4,16 @@ server:
 spring:
   application:
     name: sidecar
-  profiles:
-    active:
-      - local
+#  profiles:
+#    active:
+#      - local
   cloud:
     config:
       uri:
-        - http://localhost:9500
-      username: configuser
-      password: configpassword
+        - ${vcap.services.config-client.credentials.uri:http://localhost:9500}
+      username: ${vcap.services.config-client.credentials.username:configuser}
+      password: ${vcap.services.config-client.credentials.password:configpassword}
 
-       
-eureka:
-  client:
-    serviceUrl:      
-       defaultZone: http://localhost:9000/eureka
-    register-with-eureka: true
-    fetch-registry: true
 
-sidecar:
-  port: 3000
-  health-uri: http://localhost:3000/health
-  
-management:
-  security:
-    enabled: false
-    
-zuul:
-  routes:
-    wstore: 
-      path: /wstore/**
-      url: http://localhost:3000
        
      

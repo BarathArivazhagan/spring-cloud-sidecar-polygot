@@ -5,12 +5,13 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch & nodemon dist/App.js",
-    "debug": "tsc --watch & nodemon dist/App.js",
+    "dev": "tsc --watch & node dist/App.js",
+    "debug": "tsc --watch & node dist/App.js",
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
     "tsc": "tsc",
-    "start": "tsc --watch & nodemon dist/App.js"
+    "preinstall": "npm build",
+    "start": "node dist/App.js"
   },
   "keywords": [
     "nodejs",
@@ -35,5 +36,8 @@
     "tsc": "1.20150623.0",
     "typescript": "2.3.3",
     "typescript-eslint-parser": "3.0.0"
+  },
+  "engines": {
+    "node": "7.8.0"
   }
 }

@@ -1,0 +1,10 @@
+---
+applications:
+- name: zuul-proxy
+  memory: 1024M
+  buildpack: java_buildpack
+  services:
+  - config-client
+  env:
+    SPRING_PROFILES_ACTIVE: pcfdev
+    #SPRING_PROFILES_ACTIVE: pcf

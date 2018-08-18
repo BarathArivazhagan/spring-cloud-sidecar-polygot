@@ -1,0 +1,6 @@
+---
+applications:
+- name: wstore-node-express
+  memory: 1024M
+  buildpack: nodejs_buildpack
+  command: npm start

@@ -4,8 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.barath.cloud.samples</groupId>
-	<artifactId>sidecar</artifactId>
-	<version>2.0.1.RELEASE</version>
+	<artifactId>sidecar</artifactId>	
 	<packaging>jar</packaging>
 
 	<name>sidecar</name>

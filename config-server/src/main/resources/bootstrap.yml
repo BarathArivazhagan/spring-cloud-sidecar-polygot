@@ -2,16 +2,23 @@ server:
   port: 9500
 
 spring:
+  profiles:
+    active: native # fallback mechanism to load config properties from class path
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample
+          uri: ${vcap.services.config-server.credentials.uri:https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample}
           search-paths:
             - config-properties/{application}
           default-label: develop
+          order: 1
+        native:
+          search-locations:
+          - classpath:/config/{application}
+          order: 2
   security:
     user:
-      name: configuser
-      password: configpassword
+      name: ${vcap.services.config-server.credentials.username:configuser}
+      password: ${vcap.services.config-server.credentials.password:configpassword}
       

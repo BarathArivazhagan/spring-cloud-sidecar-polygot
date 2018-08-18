@@ -2,13 +2,13 @@
 eureka:
   client:
     serviceUrl:      
-       defaultZone: http://localhost:9000/eureka
+       defaultZone: https://eureka-server.local.pcfdev.io/eureka
     register-with-eureka: true
     fetch-registry: true
 
 sidecar:
-  port: 3000
-  health-uri: http://localhost:3000/health
+  port: 443
+  health-uri: https://sidecar.local.pcfdev.io/health
   
 management:
   security:
@@ -18,4 +18,4 @@ zuul:
   routes:
     wstore: 
       path: /wstore/**
-      url: http://localhost:3000
+      url: https://wstore-node-express.local.pcfdev.io

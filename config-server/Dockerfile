@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
 MAINTAINER BARATH
-ADD target/zuul-proxy-0.0.1-SNAPSHOT.jar app.jar
+ADD target/config-server-*.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
