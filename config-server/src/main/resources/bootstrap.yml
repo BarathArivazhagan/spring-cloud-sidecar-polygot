@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: config-server
-  profiles:
-    active: native # fallback mechanism to load config properties from class path
+#  profiles:
+#    active: native # fallback mechanism to load config properties from class path
   cloud:
     config:
       server:

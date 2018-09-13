@@ -1,0 +1,6 @@
+eureka:
+  client:
+    serviceUrl:      
+       defaultZone: https://eureka-server.local.pcfdev.io/eureka
+    register-with-eureka: true
+    fetch-registry: true

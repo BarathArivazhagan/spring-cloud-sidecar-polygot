@@ -9,11 +9,11 @@ zuul:
     wstore: 
         path: /wstore/**
         url: http://localhost:3000
-        
+
 eureka:
   client:
     serviceUrl:      
        defaultZone: http://localhost:9000/eureka
     register-with-eureka: true
     fetch-registry: true
-        
+
