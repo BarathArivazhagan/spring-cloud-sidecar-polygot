@@ -11,6 +11,7 @@ services:
     depends_on:
      - config-server
     environment:     
+      SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500      
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
@@ -22,9 +23,11 @@ services:
       - config-server
     links: 
       - eureka-server
+      - config-server
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka    
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
+      SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   csstore-microservice:
@@ -35,9 +38,11 @@ services:
       - config-server
     links: 
       - eureka-server
+      - config-server
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka     
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
+      SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   wsstore-node:
@@ -63,6 +68,7 @@ services:
       ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
       ZUUL_ROUTES_WSTORE_URL:  http://wsstore-node:3000
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
+      SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   sidecar:
@@ -80,6 +86,7 @@ services:
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
+      SPRING_PROFILES_ACTIVE: local
 
 
 
