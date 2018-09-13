@@ -10,7 +10,7 @@
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
     "tsc": "tsc",
-    "preinstall": "npm build",
+    "prestart": "npm run build",
     "start": "node dist/App.js"
   },
   "keywords": [

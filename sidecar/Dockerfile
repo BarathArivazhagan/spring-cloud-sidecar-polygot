@@ -1,5 +1,13 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER BARATH
-EXPOSE 9004
-ADD target/sidecar-0.0.1-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+
+
+ FROM openjdk:8-jdk-alpine as final
+ ADD target/sidecar-*.jar app.jar
+ ENTRYPOINT ["java","-jar","app.jar"]
+
+
+
+
+
+
+
+
