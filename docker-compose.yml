@@ -11,7 +11,7 @@ services:
     depends_on:
      - config-server
     environment:     
-      SPRING_CLOUD_CONFIG_URI: http://config-server:9500
+      SPRING_CLOUD_CONFIG_URI: http://config-server:9500      
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   msstore-microservice:
@@ -23,7 +23,7 @@ services:
     links: 
       - eureka-server
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka    
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
@@ -36,7 +36,7 @@ services:
     links: 
       - eureka-server
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka     
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
