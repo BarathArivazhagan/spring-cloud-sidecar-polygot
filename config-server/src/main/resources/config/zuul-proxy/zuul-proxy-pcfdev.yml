@@ -1,0 +1,19 @@
+zuul:
+  routes:
+    msstore :       
+        path: /msstore/**
+        url: https://mstore-microservice.local.pcfdev.io
+    csstore: 
+        path: /csstore/**
+        url: https://csstore-microservice.local.pcfdev.io
+    wstore: 
+        path: /wstore/**
+        url: https://wstore-node-express.local.pcfdev.io
+        
+eureka:
+  client:
+    serviceUrl:      
+       defaultZone: https://eureka-server.local.pcfdev.io/eureka
+    register-with-eureka: true
+    fetch-registry: true
+        

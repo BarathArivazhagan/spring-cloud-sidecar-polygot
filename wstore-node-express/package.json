@@ -1,16 +1,17 @@
 {
   "name": "wsstore-node-express",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "wstore node express application using entity ORM framework",
   "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch & nodemon dist/App.js",
-    "debug": "tsc --watch & nodemon dist/App.js",
+    "dev": "tsc --watch & node dist/App.js",
+    "debug": "tsc --watch & node dist/App.js",
     "test": "tsc && mocha dist/**/*.spec.js",
     "lint": "eslint src --ext ts",
     "tsc": "tsc",
-    "start": "tsc --watch & nodemon dist/App.js"
+    "prestart": "npm run build",
+    "start": "node dist/App.js"
   },
   "keywords": [
     "nodejs",
@@ -22,11 +23,7 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
-    "morgan": "^1.8.2",
-    "mysql": "^2.14.1",
-    "nodemon": "^1.11.0",
-    "typeorm": "0.1.0-alpha.35",
-    "typescript": "^2.4.2"
+    "morgan": "^1.8.2"
   },
   "devDependencies": {
     "@types/node": "^8.0.20",
@@ -39,5 +36,8 @@
     "tsc": "1.20150623.0",
     "typescript": "2.3.3",
     "typescript-eslint-parser": "3.0.0"
+  },
+  "engines": {
+    "node": "7.8.0"
   }
 }

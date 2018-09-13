@@ -1,4 +1,4 @@
-FROM node
+FROM node as final
 
 MAINTAINER Barath
 

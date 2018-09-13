@@ -1,0 +1,19 @@
+
+server:
+  port: 9004   
+spring:
+  application:
+    name: sidecar
+#  profiles:
+#    active:
+#      - local
+  cloud:
+    config:
+      uri:
+        - ${vcap.services.config-client.credentials.uri:http://localhost:9500}
+      username: ${vcap.services.config-client.credentials.username:configuser}
+      password: ${vcap.services.config-client.credentials.password:configpassword}
+
+
+       
+     

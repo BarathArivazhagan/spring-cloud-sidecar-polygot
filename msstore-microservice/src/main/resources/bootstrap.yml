@@ -1,0 +1,17 @@
+
+server:
+  port: 9002
+    
+spring:
+  application:
+    name: msstore-microservice
+  profiles:
+    active:
+      - local
+  cloud:
+    config:
+      uri:
+        - http://localhost:9500
+      username: configuser
+      password: configpassword
+     

@@ -1,0 +1,16 @@
+server:
+  port: 9000 
+spring:
+  application:
+    name: eureka-server
+# Enable profiles when required
+#  profiles:
+#    active:
+#      - local
+  cloud:
+    config:
+      uri:
+        - ${vcap.services.config-client.credentials.uri:http://localhost:9500}
+      username: ${vcap.services.config-client.credentials.username:configuser}
+      password: ${vcap.services.config-client.credentials.password:configpassword}
+     

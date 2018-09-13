@@ -1,26 +1,19 @@
-spring:
-  application:
-    name: zuul-proxy
-
-server:
-  port: 9005
-
 zuul:
   routes:
     msstore :       
         path: /msstore/**
-        url: http://localhost:9002
+        url: https://mstore-microservice.local.pcfdev.io
     csstore: 
         path: /csstore/**
-        url: http://localhost:9001
+        url: https://csstore-microservice.local.pcfdev.io
     wstore: 
         path: /wstore/**
-        url: http://localhost:3000
+        url: https://wstore-node-express.local.pcfdev.io
         
 eureka:
   client:
     serviceUrl:      
-       defaultZone: http://localhost:9000/eureka
+       defaultZone: https://eureka-server.local.pcfdev.io/eureka
     register-with-eureka: true
     fetch-registry: true
         

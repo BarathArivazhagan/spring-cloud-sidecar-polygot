@@ -1,12 +1,3 @@
-
-
-spring:
-  application:
-    name: csstore-microservice
-
-server:
-  port: 9001
-  #context-path: /csstore
 eureka:
   client:
     serviceUrl:      

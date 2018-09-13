@@ -1,0 +1,21 @@
+       
+eureka:
+  client:
+    serviceUrl:      
+       defaultZone: https://eureka-server.local.pcfdev.io/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+sidecar:
+  port: 443
+  health-uri: https://sidecar.local.pcfdev.io/health
+  
+management:
+  security:
+    enabled: false
+    
+zuul:
+  routes:
+    wstore: 
+      path: /wstore/**
+      url: https://wstore-node-express.local.pcfdev.io

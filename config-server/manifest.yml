@@ -1,0 +1,9 @@
+---
+applications:
+- name: config-server
+  memory: 1024M
+  buildpack: java_buildpack
+  path: target/config-server-2.0.3.RELEASE.jar
+  services:
+  - config-server
+ 

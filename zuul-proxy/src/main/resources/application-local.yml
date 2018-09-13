@@ -1,0 +1,19 @@
+zuul:
+  routes:
+    msstore :       
+        path: /msstore/**
+        url: http://localhost:9002
+    csstore: 
+        path: /csstore/**
+        url: http://localhost:9001
+    wstore: 
+        path: /wstore/**
+        url: http://localhost:3000
+        
+eureka:
+  client:
+    serviceUrl:      
+       defaultZone: http://localhost:9000/eureka
+    register-with-eureka: true
+    fetch-registry: true
+        

@@ -1,0 +1,7 @@
+
+eureka:
+  instance:
+    hostname: ${eureka.instance.hostname}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
