@@ -1,6 +1,9 @@
-# spring-cloud-sidecar-sample
-This project contains samples demonstrating the usage of side car polygot.
-Spring cloud side car helps to register non jvm applications in eureka service registration server/discovery.
+# spring-cloud-sidecar-polygot-sample
+This project contains samples demonstrating the usage of netflix`s side car polygot.
+Spring cloud side car helps to register non jvm applications in eureka service registration server and available as part of service discovery. 
+
+> <b> Note: </b> Branches 1.x.x/2.x.x versions makes it compatible with spring boot versions 1.x.x/2.x.x.
+> Kindly choose branch w.r.t spring boot release versions.
 
 ![side car](images/sidecar.png)
 
@@ -51,15 +54,13 @@ Spring cloud side car helps to register non jvm applications in eureka service r
    
    ```
    ./mvnw clean install
-
    ```
 
  * To run the application :
 
-	  ```
-	  docker-compose up
-
-	  ```
+  ```
+  docker-compose up
+  ```
 
 ## How to test the application ? 
 
@@ -129,7 +130,6 @@ In order to provide separate proxy for side car(non jvm) based applications, thi
 
 ```
   docker-compose build
-
 ```
 
 
