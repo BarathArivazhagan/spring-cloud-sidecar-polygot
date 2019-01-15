@@ -3,10 +3,10 @@ server:
 spring:
   application:
     name: eureka-server
-# Enable profiles when required
+# Enable/Disable profiles when required/ to override application properties
 #  profiles:
 #    active:
-#      - local
+#      - local # dev/test/prod
   cloud:
     config:
       uri:

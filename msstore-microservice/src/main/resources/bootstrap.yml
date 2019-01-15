@@ -5,9 +5,10 @@ server:
 spring:
   application:
     name: msstore-microservice
-  profiles:
-    active:
-      - local
+# Enable/Disable profiles when required/ to override application properties
+#  profiles:
+#    active:
+#      - local # dev/test/prod
   cloud:
     config:
       uri:

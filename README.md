@@ -82,6 +82,7 @@ zuul:
 <div>
 	<span>Navigate to <a href="http://localhost:9005/msstore">http://localhost:9005/msstore</a>  for msstore </span><br>
     <span>Navigate to <a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a> for csstore </span>
+  <span>Navigate to <a href="http://localhost:9004/wstore/home">http://localhost:9005/csstore</a> for wstore ( side car proxy to nodejs app) </span>
 </div>
 
 ## Side car route definition 
@@ -118,11 +119,6 @@ In order to provide separate proxy for side car(non jvm) based applications, thi
 
 <i>zuul-proxy</i> : provides proxy to jvm based applications. <br>
 <i>sidecar </i> : provides proxy to non jvm based applications.
-
-#### Future Actions : 
-
-* Config server : externalize the properties. 
-* Introduce hystrix stream and feign clients to interact with other microservices.
 
 
 
