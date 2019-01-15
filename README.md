@@ -81,7 +81,7 @@ zuul:
 ```
 <div>
 	<span>Navigate to <a href="http://localhost:9005/msstore">http://localhost:9005/msstore</a>  for msstore </span><br>
-    <span>Navigate to <a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a> for csstore </span>
+    <span>Navigate to <a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a> for csstore </span><br>
   <span>Navigate to <a href="http://localhost:9004/wstore/home">http://localhost:9005/csstore</a> for wstore ( side car proxy to nodejs app) </span>
 </div>
 
