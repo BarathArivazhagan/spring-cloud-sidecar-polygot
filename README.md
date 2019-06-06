@@ -52,9 +52,9 @@ choose the branch based on below versions.
   
 </table>
 
+#### Projects
+
 <table>
-
-
  <tr>
     <th style="text-align:left">Name</th>
     <th style="text-align:left">Port</th> 
@@ -97,15 +97,15 @@ choose the branch based on below versions.
 
  * Download/Clone the repository : 
    
-   ```sh
+  ```
   $ git clone https://github.com/BarathArivazhagan/spring-cloud-sidecar-polygot.git
   $ cd spring-cloud-sidecar-polygot
-   ```
+  ```
  * Maven build : 
    
-   ```sh
+  ```sh
    $ ./mvnw clean install
-   ```
+  ```
  * Docker image build : 
    
    ```sh
