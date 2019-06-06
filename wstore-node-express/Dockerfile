@@ -1,6 +1,4 @@
-FROM node as final
-
-MAINTAINER Barath
+FROM node:12.4.0-alpine
 
 WORKDIR /usr/wstore-node-express
 

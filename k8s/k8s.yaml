@@ -1,0 +1,365 @@
+
+# config map for spring profiles
+apiVersion: v1
+data:
+  spring.profiles.active: k8s
+kind: ConfigMap
+metadata:
+  name: spring-config-map
+
+---
+
+# config map for eureka clients
+
+apiVersion: v1
+data:
+  eureka.server.url:  http://eureka-server:9000/eureka
+kind: ConfigMap
+metadata:
+  name: eureka-server-config-map
+---
+
+# config map for config clients
+
+apiVersion: v1
+data:
+  config.server.url:  http://config-server:9500
+  config.server.username: configuser
+  config.server.password: configpass
+kind: ConfigMap
+metadata:
+  name: config-server-config-map
+---
+
+# config map for zuul gateway
+
+apiVersion: v1
+data:
+  msstore.url: http://msstore-service:9002
+  csstore.url: http://csstore-service:9001
+  wsstore.url: http://wsstore-service:3000
+kind: ConfigMap
+metadata:
+  name: zuul-proxy-config-map
+---
+
+# deployment resource for eureka server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-server
+spec:
+  selector:
+    matchLabels:
+      app: eureka-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: eureka-server
+    spec:
+      containers:
+      - name: eureka-server
+        image: barathece91/spring-cloud-sidecar-polygot-eureka-server:v2.1.4
+        ports:
+        - containerPort: 9000
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom:
+              configMapKeyRef:
+                  name: spring-config-map
+                  key: spring.profiles.active
+   
+---
+# deployment resource for msstore-service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msstore-service
+spec:
+  selector:
+    matchLabels:
+      app: msstore-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: msstore-service
+    spec:
+      containers:   
+      - name: msstore-service
+        image: barathece91/spring-cloud-sidecar-polygot-msstore-microservice:v2.1.4
+        ports:
+        - containerPort: 9002
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom:
+              configMapKeyRef:
+                  name: spring-config-map
+                  key: spring.profiles.active
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          valueFrom:
+              configMapKeyRef:
+                name: eureka-server-config-map
+                key: eureka.server.url 
+---
+
+# deployment resource for csstore-service
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csstore-service
+spec:
+  selector:
+    matchLabels:
+      app: csstore-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: csstore-service
+    spec:
+      containers:   
+      - name: csstore-service
+        image: barathece91/spring-cloud-sidecar-polygot-csstore-microservice:v2.1.4
+        ports:
+        - containerPort: 9001
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom:
+              configMapKeyRef:
+                  name: spring-config-map
+                  key: spring.profiles.active  
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          valueFrom:
+              configMapKeyRef:
+                name: eureka-server-config-map
+                key: eureka.server.url
+
+
+---
+# deployment resource for wsstore-service
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wsstore-service
+spec:
+  selector:
+    matchLabels:
+      app:  wsstore-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  wsstore-service
+    spec:
+      containers:   
+      - name:  wsstore-service
+        image: barathece91/spring-cloud-sidecar-polygot-wstore-node-service:v2.1.4
+        ports:
+        - containerPort: 3000
+
+---
+# deployment resource for zuul proxy
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-proxy
+spec:
+  selector:
+    matchLabels:
+      app: zuul-proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zuul-proxy
+    spec:
+      containers:
+      - name: zuul-proxy
+        image: barathece91/spring-cloud-sidecar-polygot-zuul-proxy:v2.1.4
+        ports:
+        - containerPort: 9005    
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom:
+              configMapKeyRef:
+                  name: spring-config-map
+                  key: spring.profiles.active
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          valueFrom:
+              configMapKeyRef:
+                  name: eureka-server-config-map
+                  key: eureka.server.url
+        - name: ZUUL_ROUTES_MSSTORE_URL
+          valueFrom:
+              configMapKeyRef:
+                  name: zuul-proxy-config-map
+                  key: msstore.url
+        - name: ZUUL_ROUTES_CSSTORE_URL
+          valueFrom:
+              configMapKeyRef:
+                  name: zuul-proxy-config-map
+                  key:  csstore.url
+        - name: ZUUL_ROUTES_WSTORE_URL
+          valueFrom:
+              configMapKeyRef:
+                  name: zuul-proxy-config-map
+                  key:  wsstore.url
+        - name: SPRING_CLOUD_CONFIG_URI
+          valueFrom:
+              configMapKeyRef:
+                  name: config-server-config-map
+                  key: config.server.url
+---
+
+# deployment resource for sidecar proxy
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidecar-proxy
+spec:
+  selector:
+    matchLabels:
+      app: sidecar-proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sidecar-proxy
+    spec:
+      containers:
+      - name: sidecar-proxy
+        image: barathece91/spring-cloud-sidecar-polygot-sidecar:v2.1.4
+        ports:
+        - containerPort: 9005    
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom:
+              configMapKeyRef:
+                  name: spring-config-map
+                  key: spring.profiles.active
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          valueFrom:
+              configMapKeyRef:
+                  name: eureka-server-config-map
+                  key: eureka.server.url
+        - name: ZUUL_ROUTES_WSTORE_URL
+          valueFrom:
+              configMapKeyRef:
+                  name: zuul-proxy-config-map
+                  key: wsstore.url
+        - name: SIDECAR_HEALTH-URI
+          value: http://wsstore-service:3000/health
+        - name: SPRING_CLOUD_CONFIG_URI
+          valueFrom:
+              configMapKeyRef:
+                  name: config-server-config-map
+                  key: config.server.url
+---
+
+# deployment resource for config server
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  selector:
+    matchLabels:
+      app: config-server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+      - name: config-server
+        image: barathece91/spring-cloud-sidecar-polygot-config-server:v2.1.4
+        ports:
+        - containerPort: 9500
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: eureka-server
+spec:
+  selector:
+    app: eureka-server
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9000
+    targetPort: 9000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: msstore-service
+spec:
+  selector:
+    app: msstore-service
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9002
+    targetPort: 9002
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: csstore-service
+spec:
+  selector:
+    app: csstore-service
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9001
+    targetPort: 9001
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: zuul-proxy
+spec:
+  selector:
+    app: zuul-proxy
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9005
+    targetPort: 9005
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sidecar-proxy
+spec:
+  selector:
+    app: sidecar-proxy
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9004
+    targetPort: 9004
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: config-server
+spec:
+  selector:
+    app: config-server
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 9500
+    targetPort: 9500

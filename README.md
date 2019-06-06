@@ -1,11 +1,56 @@
-# spring-cloud-sidecar-polygot-sample
-This project contains samples demonstrating the usage of netflix`s side car polygot.
+# spring-cloud-sidecar-polygot-demo
+This project contains demonstrates the usage of netflix`s side car polygot.
 Spring cloud side car helps to register non jvm applications in eureka service registration server and available as part of service discovery. 
 
 > <b> Note: </b> Branches 1.x.x/2.x.x versions makes it compatible with spring boot versions 1.x.x/2.x.x.
 > Kindly choose branch w.r.t spring boot release versions.
 
 ![side car](images/sidecar.png)
+
+
+#### Compatability Matrix
+
+choose the branch based on below versions.
+
+<table>
+ <tr>
+    <th style="text-align:left">Branch/Version</th>
+    <th style="text-align:left">Spring Boot</th>
+    <th style="text-align:left">Spring Cloud</th>
+    <th style="text-align:left">Node Js</th>
+  </tr>
+  <tr>
+    <td>master</td>
+    <td>2.1.5.RELEASE</td>
+    <td>Greenwich.SR1</td>
+    <td>12.4.0</td>
+  </tr>
+  <tr>
+    <td>2.1.4</td>
+    <td>2.1.4.RELEASE</td>
+    <td>Greenwich.RELEASE</td>
+     <td>12.4.0</td>
+  </tr>
+  <tr>
+    <td>2.1.2</td>
+    <td>2.1.2.RELEASE</td>
+    <td>Greenwich.RC2</td>
+     <td>10.16.0</td>
+  </tr>
+  <tr>
+    <td>2.0.3</td>
+    <td>2.0.3.RELEASE</td>
+    <td>Finchley.RELEASE</td>
+     <td>8.16.0</td>
+  </tr>
+  <tr>
+    <td>1.5.6</td>
+    <td>1.5.6.RELEASE</td>
+    <td>Dalston.SR3</td>
+     <td>8.16.0</td>
+  </tr>
+  
+</table>
 
 <table>
 
@@ -52,14 +97,25 @@ Spring cloud side car helps to register non jvm applications in eureka service r
 
  * Download/Clone the repository : 
    
+   ```sh
+  $ git clone https://github.com/BarathArivazhagan/spring-cloud-sidecar-polygot.git
+  $ cd spring-cloud-sidecar-polygot
    ```
-   ./mvnw clean install
+ * Maven build : 
+   
+   ```sh
+   $ ./mvnw clean install
    ```
-
+ * Docker image build : 
+   
+   ```sh
+   # Note change the docker images as per your image name in docker compose file
+   $ docker-compose build 
+   ```
  * To run the application :
 
-  ```
-  docker-compose up
+  ```sh
+  $ docker-compose up
   ```
 
 ## How to test the application ? 
@@ -79,11 +135,20 @@ zuul:
         url: http://localhost:9001
 
 ```
-<div>
-	<span>Navigate to <a href="http://localhost:9005/msstore">http://localhost:9005/msstore</a>  for msstore </span><br>
-    <span>Navigate to <a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a> for csstore </span><br>
-  <span>Navigate to <a href="http://localhost:9004/wstore/home">http://localhost:9005/csstore</a> for wstore ( side car proxy to nodejs app) </span>
-</div>
+
+## Service Urls:
+<table>
+  <tr>
+    <td><a href="http://localhost:9005/msstore">http://localhost:9005/msstore</a></td><td>msstore</td>
+  </tr>
+   <tr>
+    <td><a href="http://localhost:9005/csstore">http://localhost:9005/csstore</a></td><td>csstore</td>
+  </tr>
+   <tr>
+    <td><a href="http://localhost:9004/wstore/home">http://localhost:9005/csstore</a></td><td>wstore</td>
+  </tr>
+</table>
+
 
 ## Side car route definition 
 
@@ -125,7 +190,7 @@ In order to provide separate proxy for side car(non jvm) based applications, thi
 ## How to rebuild the project after the changes? 
 
 ```
-  docker-compose build
+$ docker-compose build
 ```
 
 
@@ -134,9 +199,6 @@ In order to provide separate proxy for side car(non jvm) based applications, thi
 
 
 * http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
-* https://dzone.com/articles/spring-cloud-sidecar
-* http://www.java-allandsundry.com/2015/09/spring-cloud-sidecar.html
-* http://stytex.de/blog/2016/01/18/spring-cloud-sidecar-applications/
 
 
 
