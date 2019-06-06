@@ -2,10 +2,12 @@ version: '3'
 services:
   config-server:
     build: ./config-server
+    image: barathece91/spring-cloud-sidecar-polygot-config-server:v2.1.4
     ports:
       - "9500:9500"
   eureka-server:
     build: ./eureka-server
+    image: barathece91/spring-cloud-sidecar-polygot-eureka-server:v2.1.4
     ports:
       - "9000:9000"
     depends_on:
@@ -15,8 +17,9 @@ services:
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500      
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
-  msstore-microservice:
+  msstore-service:
     build: ./msstore-microservice
+    image: barathece91/spring-cloud-sidecar-polygot-msstore-microservice:v2.1.4
     ports:
       - "9002:9002"
     depends_on:
@@ -30,8 +33,9 @@ services:
       SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
-  csstore-microservice:
+  csstore-service:
     build: ./csstore-microservice
+    image: barathece91/spring-cloud-sidecar-polygot-csstore-microservice:v2.1.4
     ports:
       - "9001:9001"
     depends_on:
@@ -45,8 +49,9 @@ services:
       SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
-  wsstore-node:
+  wsstore-service:
     build: ./wstore-node-express
+    image: barathece91/spring-cloud-sidecar-polygot-wstore-node-service:v2.1.4
     ports:
       - "3000:3000"
     depends_on:
@@ -60,13 +65,13 @@ services:
     depends_on: 
       - config-server
       - eureka-server
-      - msstore-microservice
-      - csstore-microservice
+      - msstore-service
+      - csstore-service
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
-      ZUUL_ROUTES_MSSTORE_URL: http://msstore-microservice:9002
-      ZUUL_ROUTES_CSSTORE_URL: http://csstore-microservice:9001
-      ZUUL_ROUTES_WSTORE_URL:  http://wsstore-node:3000
+      ZUUL_ROUTES_MSSTORE_URL: http://msstore-service:9002
+      ZUUL_ROUTES_CSSTORE_URL: http://csstore-service:9001
+      ZUUL_ROUTES_WSTORE_URL:  http://wsstore-service:3000
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_PROFILES_ACTIVE: local
       SPRING_CLOUD_CONFIG_USERNAME: configuser
@@ -81,8 +86,8 @@ services:
       - eureka-server  
    environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka
-      SIDECAR_HEALTH-URI: http://wsstore-node:3000/health
-      ZUUL_ROUTES_WSTORE_URL: http://wsstore-node:3000
+      SIDECAR_HEALTH-URI: http://wsstore-service:3000/health
+      ZUUL_ROUTES_WSTORE_URL: http://wsstore-service:3000
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass

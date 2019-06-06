@@ -7,6 +7,45 @@ Spring cloud side car helps to register non jvm applications in eureka service r
 
 ![side car](images/sidecar.png)
 
+
+#### Compatability Matrix
+
+choose the branch based on below versions.
+
+<table>
+ <tr>
+    <th style="text-align:left">Branch/Version</th>
+    <th style="text-align:left">Spring Boot</th>
+    <th style="text-align:left">Spring Cloud</th>
+  </tr>
+  <tr>
+    <td>master</td>
+    <td>2.1.5.RELEASE</td>
+    <td>Greenwich.SR1</td>
+  </tr>
+  <tr>
+    <td>2.1.4</td>
+    <td>2.1.4.RELEASE</td>
+    <td>Greenwich.RELEASE</td>
+  </tr>
+  <tr>
+    <td>2.1.2</td>
+    <td>2.1.2.RELEASE</td>
+    <td>Greenwich.RC2</td>
+  </tr>
+  <tr>
+    <td>2.0.3</td>
+    <td>2.0.3.RELEASE</td>
+    <td>Finchley.RELEASE</td>
+  </tr>
+  <tr>
+    <td>1.5.6</td>
+    <td>1.5.6.RELEASE</td>
+    <td>Dalston.SR3</td>
+  </tr>
+  
+</table>
+
 <table>
 
 

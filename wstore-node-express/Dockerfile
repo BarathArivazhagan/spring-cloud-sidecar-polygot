@@ -1,6 +1,8 @@
-FROM node as final
+FROM node 
 
-MAINTAINER Barath
+# best practice is not to use root user
+RUN adduser -D demo 
+USER demo
 
 WORKDIR /usr/wstore-node-express
 
