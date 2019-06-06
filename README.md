@@ -1,5 +1,5 @@
-# spring-cloud-sidecar-polygot-sample
-This project contains samples demonstrating the usage of netflix`s side car polygot.
+# spring-cloud-sidecar-polygot-demo
+This project contains demonstrates the usage of netflix`s side car polygot.
 Spring cloud side car helps to register non jvm applications in eureka service registration server and available as part of service discovery. 
 
 > <b> Note: </b> Branches 1.x.x/2.x.x versions makes it compatible with spring boot versions 1.x.x/2.x.x.
