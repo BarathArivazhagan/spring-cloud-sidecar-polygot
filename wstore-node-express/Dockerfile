@@ -1,8 +1,4 @@
-FROM node 
-
-# best practice is not to use root user
-RUN adduser -D demo 
-USER demo
+FROM node:12.4.0-alpine
 
 WORKDIR /usr/wstore-node-express
 

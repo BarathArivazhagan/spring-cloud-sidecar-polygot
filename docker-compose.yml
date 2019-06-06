@@ -60,6 +60,7 @@ services:
       - sidecar
   zuul-proxy:
     build: ./zuul-proxy
+    image: barathece91/spring-cloud-sidecar-polygot-zuul-proxy:v2.1.4
     ports:
       - "9005:9005"
     depends_on: 
@@ -78,6 +79,7 @@ services:
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   sidecar:
    build: ./sidecar
+   image: barathece91/spring-cloud-sidecar-polygot-sidecar:v2.1.4
    ports:
       - "9004:9004"
    depends_on:
