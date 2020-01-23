@@ -1,13 +1,15 @@
-version: '3'
+version: '3.7'
 services:
   config-server:
     build: ./config-server
-    image: barathece91/spring-cloud-sidecar-polygot-config-server:v2.1.4
+    container_name: config-server
+    image: barathece91/spring-cloud-sidecar-polygot-config-server:v2.2.2
     ports:
       - "9500:9500"
   eureka-server:
     build: ./eureka-server
-    image: barathece91/spring-cloud-sidecar-polygot-eureka-server:v2.1.4
+    container_name: eureka-server
+    image: barathece91/spring-cloud-sidecar-polygot-eureka-server:v2.2.2
     ports:
       - "9000:9000"
     depends_on:
@@ -19,7 +21,8 @@ services:
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   msstore-service:
     build: ./msstore-microservice
-    image: barathece91/spring-cloud-sidecar-polygot-msstore-microservice:v2.1.4
+    container_name: msstore-service
+    image: barathece91/spring-cloud-sidecar-polygot-msstore-microservice:v2.2.2
     ports:
       - "9002:9002"
     depends_on:
@@ -35,7 +38,8 @@ services:
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   csstore-service:
     build: ./csstore-microservice
-    image: barathece91/spring-cloud-sidecar-polygot-csstore-microservice:v2.1.4
+    container_name: csstore-service
+    image: barathece91/spring-cloud-sidecar-polygot-csstore-microservice:v2.2.2
     ports:
       - "9001:9001"
     depends_on:
@@ -51,7 +55,8 @@ services:
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   wsstore-service:
     build: ./wstore-node-express
-    image: barathece91/spring-cloud-sidecar-polygot-wstore-node-service:v2.1.4
+    container_name: wsstore-service
+    image: barathece91/spring-cloud-sidecar-polygot-wstore-node-service:v2.2.2
     ports:
       - "3000:3000"
     depends_on:
@@ -60,7 +65,7 @@ services:
       - sidecar
   zuul-proxy:
     build: ./zuul-proxy
-    image: barathece91/spring-cloud-sidecar-polygot-zuul-proxy:v2.1.4
+    image: barathece91/spring-cloud-sidecar-polygot-zuul-proxy:v2.2.2
     ports:
       - "9005:9005"
     depends_on: 
@@ -79,7 +84,8 @@ services:
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   sidecar:
    build: ./sidecar
-   image: barathece91/spring-cloud-sidecar-polygot-sidecar:v2.1.4
+   container_name: sidecar
+   image: barathece91/spring-cloud-sidecar-polygot-sidecar:v2.2.2
    ports:
       - "9004:9004"
    depends_on:

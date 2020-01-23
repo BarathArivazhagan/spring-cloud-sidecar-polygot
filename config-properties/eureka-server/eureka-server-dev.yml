@@ -1,7 +1,7 @@
 
 eureka:
   instance:
-    hostname: ${eureka.instance.hostname}
+    hostname: localhost # override with environemnt variable
   client:
     register-with-eureka: false
     fetch-registry: false

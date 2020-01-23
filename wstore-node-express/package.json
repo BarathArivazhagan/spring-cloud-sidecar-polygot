@@ -1,6 +1,6 @@
 {
   "name": "wsstore-node-express",
-  "version": "2.1.4",
+  "version": "2.2.2",
   "description": "wstore node express application using entity ORM framework",
   "main": "app.js",
   "scripts": {
