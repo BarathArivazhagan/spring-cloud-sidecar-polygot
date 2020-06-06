@@ -13,7 +13,7 @@ spring:
           uri: ${vcap.services.config-server.credentials.uri:https://github.com/BarathArivazhagan/spring-cloud-sidecar-sample}
           search-paths:
             - config-properties/{application}
-          default-label: develop
+          default-label: master
           order: 1
         native:
           search-locations:

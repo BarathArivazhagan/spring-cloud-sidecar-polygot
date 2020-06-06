@@ -1,6 +1,6 @@
 
 #Builder stage
-FROM maven:3.5-jdk-8 as builder
+FROM maven:3.6.3-jdk-8-slim as builder
 WORKDIR /opt
 COPY . /opt
 RUN mvn clean install
