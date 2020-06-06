@@ -1,6 +1,6 @@
 {
   "name": "wsstore-node-express",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "wstore node express application using entity ORM framework",
   "main": "app.js",
   "scripts": {
@@ -15,17 +15,18 @@
   "author": "barath.arivazhagan",
   "license": "ISC",
   "dependencies": {
-    "cookie-parser": "^1.4.3",
+    "cookie-parser": "^1.4.5",
     "debug": "~4.1.1",
-    "express": "^4.16.4",
-    "http-errors": "~1.7.2",
-    "morgan": "~1.9.0"
+    "express": "^4.17.1",
+    "http-errors": "~1.7.3",
+    "morgan": "~1.10.0",
+    "minimist": ">=0.2.1"
   },
   "devDependencies": {
-    "mocha": "6.1.4"
+    "mocha": "7.2.0"
   },
   "engines": {
-    "node": "12.3.1",
-    "npm": "6.9.0"
+    "node": "12.18.0",
+    "npm": "6.14.4"
   }
 }

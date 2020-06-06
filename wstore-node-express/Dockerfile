@@ -1,4 +1,4 @@
-FROM node:12.4.0-alpine
+FROM node:14-alpine
 
 WORKDIR /usr/wstore-node-express
 

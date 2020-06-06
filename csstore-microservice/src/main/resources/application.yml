@@ -4,3 +4,26 @@ eureka:
        defaultZone: http://localhost:9000/eureka
     register-with-eureka: true
     fetch-registry: true
+    
+    
+management:
+   endpoint:
+     health:
+       enabled: true
+     info:
+       enabled: true
+     loggers:
+       enabled: true
+     metrics:
+       enabled: true
+   endpoints:
+      web:
+        exposure:
+            include:
+             - health
+             - configprops
+             - loggers
+             - metrics
+             - info
+             - httptrace
+             - env

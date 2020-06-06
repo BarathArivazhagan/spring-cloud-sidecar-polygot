@@ -21,6 +21,12 @@ choose the branch based on below versions.
   </tr>
   <tr>
     <td>master</td>
+    <td>2.3.0.RELEASE</td>
+    <td>Hoxton.SR5</td>
+    <td>14.4.0</td>
+  </tr>
+  <tr>
+    <td>2.2.2</td>
     <td>2.2.2.RELEASE</td>
     <td>Hoxton.RELEASE</td>
     <td>12.4.0</td>

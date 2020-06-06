@@ -5,7 +5,7 @@
 
 	<groupId>com.barath.cloud.samples</groupId>
 	<artifactId>spring-cloud-sidecar-polygot</artifactId>
-	<version>2.1.4.RELEASE</version>
+	<version>2.3.0.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-sidecar-polygot</name>

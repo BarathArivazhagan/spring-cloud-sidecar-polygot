@@ -13,7 +13,7 @@ zuul:
 eureka:
   client:
     serviceUrl:      
-       defaultZone: http://localhost:9000/eureka
+       defaultZone: http://eureka-server:9000/eureka
     register-with-eureka: true
     fetch-registry: true
 
