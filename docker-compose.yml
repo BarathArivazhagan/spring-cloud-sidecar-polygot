@@ -8,6 +8,10 @@ services:
       - "9500:9500"
     networks: 
       - spring-cloud-network
+    environment:     
+      SPRING_PROFILES_ACTIVE: native
+      SPRING_SECURITY_USERNAME: configuser
+      SPRING_SECURITY_PASSWORD: configpass
   eureka-server:
     build: ./eureka-server
     container_name: eureka-server
@@ -19,7 +23,7 @@ services:
     networks: 
       - spring-cloud-network
     environment:     
-      SPRING_PROFILES_ACTIVE: local
+      SPRING_PROFILES_ACTIVE: docker
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500      
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
@@ -37,7 +41,7 @@ services:
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka    
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
-      SPRING_PROFILES_ACTIVE: local
+      SPRING_PROFILES_ACTIVE: docker
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   csstore-service:
@@ -54,7 +58,7 @@ services:
     environment:
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:9000/eureka     
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
-      SPRING_PROFILES_ACTIVE: local
+      SPRING_PROFILES_ACTIVE: docker
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   wsstore-service:
@@ -88,7 +92,7 @@ services:
       ZUUL_ROUTES_CSSTORE_URL: http://csstore-service:9001
       ZUUL_ROUTES_WSTORE_URL:  http://wsstore-service:3000
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
-      SPRING_PROFILES_ACTIVE: local
+      SPRING_PROFILES_ACTIVE: docker
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
   sidecar:
@@ -109,7 +113,7 @@ services:
       SPRING_CLOUD_CONFIG_URI: http://config-server:9500
       SPRING_CLOUD_CONFIG_USERNAME: configuser
       SPRING_CLOUD_CONFIG_PASSWORD: configpass
-      SPRING_PROFILES_ACTIVE: local
+      SPRING_PROFILES_ACTIVE: docker
 
 networks:
     spring-cloud-network:
